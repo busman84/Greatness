@@ -8,12 +8,14 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressSession = require('express-session');
 var flash = require('connect-flash')
+var connectMongo = require('connect-mongo');
 
 var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var players = require('./routes/players');
 
+var MongoStore = connectMongo(expressSession);
 
 var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict');
@@ -42,7 +44,10 @@ app.use(expressSession(
   {
     secret: "m!ch@3lj0rd@n",
     saveUnitialized: false,
-    resave: false
+    resave: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
   }
 ));
 

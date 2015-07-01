@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var config = require('../config')
 var bcrypt = require('bcrypt');
 var userService = require('../services/user-service');
 
@@ -35,14 +36,23 @@ router.post('/create', function(req, res, next) {
   });
 });
 
-router.post('/login', passport.authenticate('local', {
-	failureRedirect: '/', 
-	successRedirect: '/orders',
-	failureFlash: 'Invalid email or password'
-	})); 
+router.post('/login',
+	function(req, res, next){
+		req.session.orderId = 12345;
+		if (req.body.rememberMe){
+			req.session.cookie.maxAge = config.cookieMaxAge;
+		}
+		next();
+	},
+	passport.authenticate('local', {
+		failureRedirect: '/', 
+		successRedirect: '/orders',
+		failureFlash: 'Invalid email or password'
+		})); 
 
 router.get('/logout', function(req, res, next){
 	req.logout();
+	req.session.destroy();
 	res.redirect('/');
 });
 
