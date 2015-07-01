@@ -34,9 +34,11 @@ router.post('/create', function(req, res, next) {
   });
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res, next){
-	res.redirect('/players');
-});
+router.post('/login', passport.authenticate('local', {
+	failureRedirect: '/', 
+	successRedirect: '/orders',
+	failureFlash: 'Invalid email or password'
+	})); 
 
 router.get('/logout', function(req, res, next){
 	req.logout();

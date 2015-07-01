@@ -6,7 +6,11 @@ router.get('/', function(req, res, next) {
 	if (req.user){
 		return res.redirect('/players');
 	}
-  res.render('index', { title: 'GOAT - Login' });
+	var vm = {
+		title : 'GOAT - Login',
+		error: req.flash('error')
+	};
+  res.render('index', vm);
 });
 
 module.exports = router;
