@@ -13,7 +13,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var players = require('./routes/players');
 
+
 var passportConfig = require('./auth/passport-config');
+var restrict = require('./auth/restrict');
 passportConfig();
 
 mongoose.connect(config.mongoUri);
@@ -48,6 +50,7 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
+// app.use(restrict);
 app.use('/players', players);
 
 // catch 404 and forward to error handler
