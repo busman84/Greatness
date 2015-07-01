@@ -1,12 +1,17 @@
+var bcrypt = require('bcrypt');
 var User = require('../models/user').User;
 
 exports.addUser = function(user, next){
+	bcrypt.hash(user.password, 10, function(err, hash){
+		if (err){
+			return next(err);
+		}
 	var newUser = new User({
 		firstName: user.firstName,
 		lastName: user.lastName,
 		username: user.username,
 		email: user.email.toLowerCase(),
-		password: user.password
+		password: hash
 	});
 
 	newUser.save(function(err){
@@ -15,6 +20,7 @@ exports.addUser = function(user, next){
 		}
 		next(null);
 	});
+});
 };
 
 exports.findUser = function(email, next){
