@@ -8,10 +8,18 @@ module.exports = function(){
 			if (err) {
 				return next(err);
 			}
-			if (!user || user.password !== password){
+			if (!user){
 				return next(null, null);
 			}
-			next(null, user);
+			bcrypt.compare(password, user.password, function(err, same){
+				if (err){
+					return (err);
+				}
+				if (!same){
+					return (null, null);
+				}
+				next (null, user);
+			});
 		});
 	}));
 
