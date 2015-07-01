@@ -1,2 +1,22 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="textwidget margin-top-30">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi obcaecati suscipit deserunt, sit corporis voluptates. Blanditiis praesentium modi eos dignissimos laudantium, voluptatum possimus excepturi vero accusamus ullam voluptas esse commodi?</p>
+	<p>Mollitia, labore, nam. Natus, maxime, praesentium. Sint voluptatibus eaque numquam consequuntur vel quos impedit saepe, recusandae pariatur! Repellendus optio fuga dolores delectus molestiae earum asperiores? Eveniet quis, earum nam ducimus.</p>
+</div>
+<div class="widget">
+	<form name="login-form" id="login-form" method="POST" action="/users/login">
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required/>
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required />
+		</div>
+		<div class="form-submit">
+			<input type="submit" value="Log in" />
+				<div class="margin-top-30">
+				or <a href="/users/create">Create an account</a>
+				</div>
+		</div>												
+	</form>
+</div>
