@@ -4,11 +4,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-
+var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var players = require('./routes/players');
+
+mongoose.connect(config.mongoUri);
+// mongoose.connect(config.url); // connect to our database
 
 
 

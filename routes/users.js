@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var userService = require('../services/user-service');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -15,17 +16,18 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/create', function(req, res, next) {
-	var somethingWrong= false;
-	if(somethingWrong){
-		var vm = {
-			title: 'Create an account',
-			input: req.body,
-			error: "Something went wrong! Please try again"
-		};
-		delete vm.input.password
-  		return res.render('users/create', vm);
-	}		
-	res.redirect('/players')
+  userService.addUser(req.body, function(err) {
+    if (err) {
+      var vm = {
+        title: 'Create an account',
+        input: req.body,
+        error: 'Something went wrong'
+      };
+      delete vm.input.password;
+      return res.render('users/create', vm);
+    }
+    res.redirect('/players');
+  });
 });
 
 module.exports = router;
