@@ -28,12 +28,19 @@ router.post('/create', function(req, res, next) {
       delete vm.input.password;
       return res.render('users/create', vm);
     }
-    res.redirect('/players');
+    req.login(req.body, function(err){
+    	res.redirect('/players');
+    });
   });
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res, next){
 	res.redirect('/players');
+});
+
+router.get('/logout', function(req, res, next){
+	req.logout();
+	res.redirect('/');
 });
 
 module.exports = router;
