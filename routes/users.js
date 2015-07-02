@@ -46,7 +46,7 @@ router.post('/login',
 	},
 	passport.authenticate('local', {
 		failureRedirect: '/', 
-		successRedirect: '/orders',
+		successRedirect: '/players',
 		failureFlash: 'Invalid email or password'
 		})); 
 

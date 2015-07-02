@@ -1,0 +1,31 @@
+<div class="textwidget margin-top-30 floral">
+	<p class="floral">To add a new player to the forum fill out the information below.  Even though some players have played for a couple of teams please put the team and number they are most associated with.</p>
+</div>
+<div class="widget">
+	<form name="create-user-form" id="create-user-form" method= "POST">
+			<div class="form-group">
+				<label for="playerName">Player name</label>
+				<input type="text" id="playerName" name="playerName" class= 'white' required value="{{input.playerName}}"/>
+			</div>
+			<div class="form-group">
+				<label for="nickame">Player's nickname</label>
+				<input type="text" id="nickname" name="nickname" class= 'white' value="{{input.nickname}}"/>
+			</div>
+			<div class="form-group">
+				<label for="signatureMove">Signature Move</label>
+				<input type="text" id="signatureMove" name="signatureMove" class= 'white' value="{{input.signatureMove}}"/>
+			</div>
+			<div class="form-group">
+				<label for="team">Team</label>
+				<input type="text" id="team" name="team" required class= 'white' value="{{input.team}}"/>
+			</div>
+			<div class="form-group">
+				<label for="number">Number</label>
+				<input type="number" id="number" name="number" class= 'white' autocomplete="off" required value="{{input.number}}"/>
+			</div>
+			<div class="form-submit">
+				<input type="submit" value="Add a Player" />
+			</div>
+			<span class="red">{{error}}</span>
+	</form>
+<div>

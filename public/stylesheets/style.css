@@ -93,7 +93,7 @@ color: #602e8b;
 
 a:link {
 	outline: none;
-	color: #21759b;
+	color: #floralwhite;
 }
 a:visited {
 	color: #a8add7;
@@ -140,7 +140,7 @@ comments-link a:active,
 
 .entry-content a:visited,
 .comment-content a:visited {
-	color: #a8add7;
+	color: aliceblue;
 }
 
 /* Remove automatic hyphenation */
@@ -197,4 +197,18 @@ form label {
 .red{
 	color: red
 }
+
+.cadet{
+	background-color: cadetblue;
+}
+
+.floral{
+
+color: floralwhite;
+}
+
+.white{
+	background-color: white;
+}
+
 
