@@ -5,9 +5,9 @@
 <div class="widget alice"><a href="/players/create">Add a player</a></div>
 <div class="widget">
 	<ul>
-		{{!-- {{#each players}} --}}
-			{{!-- <li><a href="#">{{players.1.playerName}},  {{players.1.team}}</a></li> --}}
-		{{!-- {{/each}} --}}
+		{{#each players}}
+			<li><a href="#">{{playerName}},  {{team}}</a></li>
+		{{/each}}
 	</ul>
 </div>
 

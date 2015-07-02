@@ -13,16 +13,6 @@ var playerSchema = new Schema({
 
 var Player = mongoose.model('Player', playerSchema);
 
-playerSchema.statics.findById = function(id, cb) {
-    return this.findOne({'_id' : id })
-    .exec(cb);
-};
-
-playerSchema.statics.findAll = function(beers, cb) {
-    return this.findAll({'players' : players})
-    .exec(cb);
-};
-
 module.exports = {
 	Player: Player
 };

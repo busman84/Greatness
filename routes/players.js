@@ -2,15 +2,23 @@ var express = require('express');
 var router = express.Router();
 var playerService = require('../services/player-service');
 var restrict = require('../auth/restrict');
+var Player = require('../models/player').Player;
 
 
 router.get('/', restrict, function(req, res, next) {
+  Player.find(function(err, players){
+    if (err) {
+      return res.send(err);
+    }
+  console.log(players)
 	var vm = { 
 		title: 'Players', 
 		orderId: req.session.orderId,
-		firstName: req.user ? req.user.firstName : null
+		firstName: req.user ? req.user.firstName : null,
+    players: players
 	}
   res.render('players/index', vm);
+  });
 });
 
 router.get('/create', restrict, function(req, res, next) {
