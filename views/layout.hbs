@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>GOAT {{#if title}} - {{title}}{{/if}}</title>
-        <meta name="description" content="The GOAT (Greatest of All Time) has been a highly debated topic throughout history.  The Romans argued who the greatest gladiator was, the Greeks the greatest Olympian, and today we are often tasked with debating the topic of our greatest sports stars.  This webpage is a forum where we can all discuss who we believe to be the GOAT in the sport of basketball." />
+        <meta name="description" content="This webpage is a forum where we can all discuss who we believe to be the GOAT in the sport of basketball." />
         <link rel="stylesheet" href="/stylesheets/wp-backgrounds.css" type='text/css' media='all' />
         <link rel='stylesheet' href="/stylesheets/mjCont.css" type='text/css' media='all' />
         <link rel='stylesheet' href='/stylesheets/front.css' type='text/css' media='all' />
@@ -15,7 +15,7 @@
         <script type='text/javascript' src="/js/main.js"></script>
     </head>
     <body class="custom-font-enabled">
-        <div id="page" class="hfeed site">
+        <div id="page" class="hfeed site cadet">
 	        <header id="masthead" class="site-header" role="banner">
 		        <hgroup>
 			        <h1 class="site-title"><a href="/" title="GOAT" rel="home">Welcome to the GOAT</a></h1>
@@ -27,7 +27,13 @@
 			        <a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
 			        <div class="menu-main-menu-container">
 			            <ul id="menu-main-menu" class="nav-menu">
-			                <li>Home</li>
+			                <li><a href="/" class="floral">Home</a></li>
+			                <li><a href="#">About</a></li>
+			                {{#unless firstName}}
+            					<li><a href="/">Login</a></li>
+            					<li><a href="/users/create">Create account</a></li>
+            				{{/unless}}
+			                <li><a href="#">Help</a></li>
                     </div>
                 </nav>
             </header>
@@ -45,7 +51,7 @@
 								<div class="panel-grid-cell" id="pgc-218-0-0">
 									<div class="panel widget panel-first-child panel-last-child" id="panel-218-0-0-0">
 										<div class="textwidget">
-											<p><img class="size-full wp-image-223 alignleft" src="/img/goat.svg" alt="restaurant to room_web" width="300" height="282" /></p>
+											<p><img class="size-full wp-image-223 alignleft" src="/img/goat.svg" alt="GOAT" width="300" height="282" /></p>
 										</div>
 									</div>
 								</div>
